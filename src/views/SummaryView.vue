@@ -12,7 +12,7 @@
         <div class="btn-wrapper">
             <CButton class="first-btn" @click="() => {routeBack()}" cssClass="btn-white-bg" displayText="Back" />
 
-            <CButton class="second-btn" displayText="Buy" />
+            <CButton class="second-btn" @click="() => {routeToHome()}" displayText="Buy" />
         </div>
       </div>
       <div class="side-column"></div>
@@ -46,11 +46,16 @@
       function routeBack(): void{
         router.back()
       }
-
+      function routeToHome(): void{
+        router.push({
+          name: 'home'
+        })
+      }
       return {
         state,
         routeBack,
-        order: computed(() => clientOrder.value)
+        order: computed(() => clientOrder.value),
+        routeToHome
       }
     }
   })
