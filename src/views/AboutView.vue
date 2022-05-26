@@ -111,7 +111,6 @@
             premium:state.finalPremium,
             name: state.clientName
           })
-
           // Go to summary view
           router.push({
             name: 'summary'
