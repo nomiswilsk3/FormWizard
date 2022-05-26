@@ -25,7 +25,7 @@
               :callBack = "func_morePremium"
               @change="(val) => {state.selectedPackage = val}" />
         </div>
-        <h4>Your Premium is : {{calculatePremium}}</h4>
+        <h4>Your Premium is : {{calculatePremium}}{{state.clientCountryCode }}</h4>
 
         <div class="btn-wrapper container">
             <CButton 
@@ -155,7 +155,7 @@
 
 <style scoped>
   .container {
-    width: 32%;
+    width: 35%;
     margin-left: 32%;
   }
   
