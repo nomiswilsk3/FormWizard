@@ -40,4 +40,10 @@
     background-color: #ffffff;
     border:  1px solid rgb(209, 202, 202);
   }
+  .btn-black-bg-wide{
+    color: #ffffff;
+    background-color: #1a1a1a;
+    width:300px;
+    height:40px;
+  }
 </style>

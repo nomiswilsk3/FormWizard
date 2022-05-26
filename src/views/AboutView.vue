@@ -93,22 +93,30 @@
       }
 
       function recordClientOrder(): void{
-        let countrySelected = countries.find((item) => item.code == state.clientCountryCode)
-        let selectedPackageInfo = packages.find((item) => item.id == parseInt(state.selectedPackage))
+        // Route to error page if user age is greeter than 100
+        if(state.clientAge >100) {
+            router.push({
+              name: 'error'
+            })
+        }else{
         
-        setClientOrder({
-          age: state.clientAge,
-          clientCountry: (countrySelected)? countrySelected.name :'',
-          package: (selectedPackageInfo)? selectedPackageInfo.name : '',
-          clientCountryCode: state.clientCountryCode,
-          premium:state.finalPremium,
-          name: state.clientName
-        })
+          let countrySelected = countries.find((item) => item.code == state.clientCountryCode)
+          let selectedPackageInfo = packages.find((item) => item.id == parseInt(state.selectedPackage))
+          
+          setClientOrder({
+            age: state.clientAge,
+            clientCountry: (countrySelected)? countrySelected.name :'',
+            package: (selectedPackageInfo)? selectedPackageInfo.name : '',
+            clientCountryCode: state.clientCountryCode,
+            premium:state.finalPremium,
+            name: state.clientName
+          })
 
-        // Go to summary view
-        router.push({
-          name: 'summary'
-        }) 
+          // Go to summary view
+          router.push({
+            name: 'summary'
+          }) 
+        }
       }
 
       const  calculatePremium =computed(() =>{
