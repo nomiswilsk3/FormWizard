@@ -12,7 +12,11 @@
 
 <template>
   <div>
-    <button :class="(props.cssClass)? props.cssClass: 'btn-black-bg'" @click="(e) => emit('click',e)">{{props.displayText}}</button>
+    <button 
+      :class="(props.cssClass)? props.cssClass: 'btn-black-bg'" 
+      @click="(e) => emit('click',e)">
+      {{props.displayText}}
+    </button>
   </div>
 </template>
 

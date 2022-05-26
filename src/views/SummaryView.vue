@@ -4,12 +4,11 @@
       <div class="side-column"></div>
       <div class="middle-column">
         <h2>Summary</h2>
-        <p><label>Currency</label> : <label>HKCG</label></p>
-        <p><label>Name</label> : <label v-if="order">{{order.name}}</label></p>
-        <p><label>Age</label> : <label v-if="order">{{order.age}}</label></p>
-        <p><label>Where do you live</label> : <label v-if="order">{{order.location}}</label></p>
-        <p><label>Package</label> : <label v-if="order">{{order.package}}</label></p>
-        <p><label>Premium</label> : <label v-if="order">{{order.premium}}</label></p>
+        <p><b><label>Name</label></b> : <label v-if="order">{{order.name}}</label></p>
+        <p><b><label>Age</label></b> : <label v-if="order">{{order.age}}</label></p>
+        <p><b><label>Where do you live</label> </b>: <label v-if="order">{{order.clientCountry}}</label></p>
+        <p><b><label>Package</label></b> : <label v-if="order">{{order.package}}</label></p>
+        <p><b><label>Premium</label></b> : <label v-if="order">{{order.premium}}{{order.clientCountryCode}}</label></p>
         <div class="btn-wrapper">
             <CButton class="first-btn" @click="() => {routeBack()}" cssClass="btn-white-bg" displayText="Back" />
 
@@ -34,18 +33,13 @@
     },
     setup() {
       const router = useRouter()
-      const state = reactive <{clientName:string;clientAge:number,clientLocation:string,selectedPackage:string}>({
+      const state = reactive <{clientName:string;clientAge:number,clientCountry:string,clientCountryCode:string,selectedPackage:string}>({
         clientName:"",
         clientAge:0,
-        clientLocation:"",
+        clientCountry:"",
+        clientCountryCode:"",
         selectedPackage:""
       })
-
-      let packages = [
-        {id:'1',name:'Standard'},
-        {id:'2',name:'Sale'},
-        {id:'3',name:'Super Sale'}
-      ]
 
     const {clientOrder} = useClientOrder()
 

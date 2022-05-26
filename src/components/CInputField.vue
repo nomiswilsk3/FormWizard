@@ -37,7 +37,7 @@
   input{
     height:25px;
     border:0px;
-    width: 100%;
+    width: 95%;
     border:  1px solid rgb(209, 202, 202);
     margin-bottom:10px
   }

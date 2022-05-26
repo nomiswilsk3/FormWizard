@@ -2,12 +2,14 @@
   import { ref } from 'vue';
     interface Package {
         id:string,
-        name:string
+        name:string,
+        selected:boolean
     }
 
   interface Props {
     label: string,
-    option_values: Package []
+    option_values: Package [],
+    callBack:(arg1: number) => number
   }
 
   const props = defineProps<Props>()
@@ -18,8 +20,19 @@
 </script>
 
 <template>
-<label class="container" v-for="prop in props.option_values" :key="prop.id"> {{prop.name}}
-  <input type="radio" :id="prop.id" :value="prop.id" v-model="picked" v-on:change="(e) => emit('change',picked)">
+  <label 
+    class="container" 
+    v-for="prop in props.option_values" 
+    :key="prop.id"> {{prop.name}} 
+    <template v-if="prop.id !=1">({{props.callBack(prop.id)}}) </template>
+
+    <input 
+      type="radio" 
+      :checked="prop.selected"
+      :id="prop.id" 
+      :value="prop.id" 
+      v-model="picked" 
+      v-on:change="(e) => emit('change',picked)">
   <span class="checkmark"></span>
 </label>
 </template>

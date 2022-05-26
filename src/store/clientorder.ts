@@ -3,9 +3,10 @@ import { ref,computed } from 'vue';
   interface Order {
     name: string,
     age: number,
-    location: string,
+    clientCountry: string,
+    clientCountryCode: string,
     package: string,
-    premium:string
+    premium:number
   }
 
   const clientOrder = ref<Order>()
